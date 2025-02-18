@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://3vs7m3ossjgl"]
+
+[ext_resource type="Script" path="res://scripts/Menus/Settings/Keybinds/ActionRemapButton.gd" id="1_v1qnt"]
+
+[node name="ActionRemapButton" type="Button" groups=["keybind_buttons"]]
+custom_minimum_size = Vector2(240, 50)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+action_mode = 0
+script = ExtResource("1_v1qnt")
+action = null

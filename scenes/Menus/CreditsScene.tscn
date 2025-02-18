@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3qnbokavx540"]
+
+[ext_resource type="Script" path="res://scripts/Menus/CreditsScene.gd" id="1_0l7qh"]
+[ext_resource type="FontFile" uid="uid://btkcpch6va07s" path="res://assets/fonts/Mexcellent Rg.otf" id="1_1wcab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rd43y"]
+
+[node name="CreditsScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0l7qh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rd43y")
+
+[node name="CreditsTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_1wcab")
+theme_override_font_sizes/font_size = 80
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rd43y")
+
+[node name="CreditsContent" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_1wcab")
+theme_override_font_sizes/font_size = 48
+text = "Pixel Annihilators
+Shoban Chiddarth"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 220
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rd43y")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_1wcab")
+theme_override_font_sizes/font_size = 42
+text = "BACK
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_back_button_pressed"]

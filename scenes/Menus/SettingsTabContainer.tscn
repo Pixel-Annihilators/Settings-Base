@@ -1,0 +1,356 @@
+[gd_scene load_steps=12 format=3 uid="uid://f0phhi15cdn8"]
+
+[ext_resource type="Script" path="res://scripts/Menus/Settings/Sound/MasterVolumeHBoxContainer.gd" id="1_2lvqe"]
+[ext_resource type="Script" path="res://scripts/Menus/Settings/Game/BallSpeedMultiplierSpinBox.gd" id="1_n626c"]
+[ext_resource type="Script" path="res://scripts/Menus/Settings/Sound/SFXVolumeHBoxContainer.gd" id="2_r1ow5"]
+[ext_resource type="Script" path="res://scripts/Menus/Settings/Sound/MusicVolumeHBoxContainer.gd" id="3_wp6nn"]
+[ext_resource type="PackedScene" uid="uid://3vs7m3ossjgl" path="res://scenes/Menus/ActionRemapButton.tscn" id="5_bmah6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gy18n"]
+
+[sub_resource type="Theme" id="Theme_j6l8s"]
+default_font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hnj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k14yd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ocvji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1jqs"]
+
+[node name="SettingsTabContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+custom_minimum_size = Vector2(968, 420)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="GAME" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/GAME"]
+layout_mode = 0
+offset_right = 968.0
+offset_bottom = 380.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/GAME/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/GAME/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/GAME/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/GAME/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "BALL SPEED MULTIPLIER"
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/GAME/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gy18n")
+
+[node name="SpinBox" type="SpinBox" parent="TabContainer/GAME/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_j6l8s")
+min_value = 0.001
+step = 0.001
+value = 1.0
+alignment = 1
+script = ExtResource("1_n626c")
+
+[node name="SOUND" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/SOUND"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/SOUND/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/SOUND/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_2lvqe")
+
+[node name="VolumeName" type="Label" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Master Volume
+"
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="MinusButton" type="Button" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "➖"
+
+[node name="VSeparator2" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="MasterVolumeHSlider" type="HSlider" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 0.552
+
+[node name="VSeparator3" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="PlusButton" type="Button" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "➕"
+
+[node name="VSeparator4" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="MasterVolumeValue" type="Label" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "55.2"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+theme_override_styles/separator = SubResource("StyleBoxEmpty_k14yd")
+
+[node name="SFXVolumeHBoxContainer" type="HBoxContainer" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_r1ow5")
+
+[node name="VolumeName" type="Label" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "SFX Volume
+"
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="MinusButton" type="Button" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "➖"
+
+[node name="VSeparator2" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="SFXVolumeHSlider" type="HSlider" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 0.552
+
+[node name="VSeparator3" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="PlusButton" type="Button" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "➕"
+
+[node name="VSeparator4" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="SFXVolumeValue" type="Label" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "55.2"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+theme_override_styles/separator = SubResource("StyleBoxEmpty_k14yd")
+
+[node name="MusicVolumeHBoxContainer" type="HBoxContainer" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_wp6nn")
+
+[node name="VolumeName" type="Label" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Music Volume
+"
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="MinusButton" type="Button" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "➖"
+
+[node name="VSeparator2" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="MusicVolumeHSlider" type="HSlider" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 0.552
+
+[node name="VSeparator3" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="PlusButton" type="Button" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "➕"
+
+[node name="VSeparator4" type="VSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2hnj0")
+
+[node name="MusicVolumeValue" type="Label" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "99.2"
+
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+theme_override_styles/separator = SubResource("StyleBoxEmpty_k14yd")
+
+[node name="CONTROLS" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/CONTROLS"]
+custom_minimum_size = Vector2(968, 380)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/CONTROLS/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="UpHBoxContainer" type="HBoxContainer" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ActionName" type="Label" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer/UpHBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MOVE UPWARDS"
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer/UpHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 240
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ocvji")
+
+[node name="ActionRemapButton" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer/UpHBoxContainer" instance=ExtResource("5_bmah6")]
+layout_mode = 2
+action = "up"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w1jqs")
+
+[node name="DownHBoxContainer" type="HBoxContainer" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ActionName" type="Label" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer/DownHBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MOVE DOWNWARDS"
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer/DownHBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 240
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ocvji")
+
+[node name="ActionRemapButton" parent="TabContainer/CONTROLS/MarginContainer/ScrollContainer/VBoxContainer/DownHBoxContainer" instance=ExtResource("5_bmah6")]
+layout_mode = 2
+action = "down"
+
+[connection signal="pressed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer/MinusButton" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer" method="_on_minus_button_pressed"]
+[connection signal="value_changed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer/MasterVolumeHSlider" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer" method="_on_master_volume_h_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer/PlusButton" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MasterVolumeHBoxContainer" method="_on_plus_button_pressed"]
+[connection signal="pressed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer/MinusButton" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer" method="_on_minus_button_pressed"]
+[connection signal="value_changed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer/SFXVolumeHSlider" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer" method="_on_sfx_volume_h_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer/PlusButton" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/SFXVolumeHBoxContainer" method="_on_plus_button_pressed"]
+[connection signal="pressed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer/MinusButton" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer" method="_on_minus_button_pressed"]
+[connection signal="value_changed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer/MusicVolumeHSlider" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer" method="_on_music_volume_h_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer/PlusButton" to="TabContainer/SOUND/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeHBoxContainer" method="_on_plus_button_pressed"]
