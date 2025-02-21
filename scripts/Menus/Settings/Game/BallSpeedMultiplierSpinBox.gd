@@ -6,3 +6,4 @@ func _ready() -> void:
 
 func _value_changed(new_value: float) -> void:
 	SettingsSaveManager.settings["ball_speed_multiplier"] = new_value
+	SettingsSaveManager.save_settings()
